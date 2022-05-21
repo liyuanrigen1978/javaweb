@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<div id="div_container">
+			<div id="div_user_list">
+				<p class="center f30">欢迎来到登录页面</p>
+				<table id="tbl_user">
+					<tr>
+						<th class="w20">用户</th>
+						<th class="w20">密码</th>
+					</tr>
+					<tr th:if="${#lists.isEmpty(session.userList)}">
+						<td colspan="4">对不起，现在没有用户！</td>
+					</tr>
+					<tr th:unless="${#lists.isEmpty(session.userList)}" th:each="user : ${session.userList}">
+						<td th:text="${user.username}">苹果</td>
+						<td th:text="${user.password}">5</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
