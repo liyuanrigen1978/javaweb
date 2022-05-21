@@ -1,33 +1,29 @@
 package com.atguigu.servlets;
 
+import com.atguigu.fruit.dao.FruitDAO;
+import com.atguigu.fruit.dao.impl.FruitDAOImpl;
+import com.atguigu.fruit.pojo.Fruit;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author liyuan_start
- * @create 2022-05-21 14:58
- */
-
-
 public class AddServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //名称 这个是字符串，数值型的要进行数值转换
-        String fnameStr = req.getParameter("fname");
-        //价格
-        String priceStr = req.getParameter("price");
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String fname = request.getParameter("fname");
+        String priceStr = request.getParameter("price");
         Integer price = Integer.parseInt(priceStr);
-        //库存
-        String fcountStr = req.getParameter("fcount");
+        String fcountStr = request.getParameter("fcount");
         Integer fcount = Integer.parseInt(fcountStr);
-        //备注
-        String remarkStr = req.getParameter("remark");
+        String remark = request.getParameter("remark");
 
+        FruitDAO fruitDAO = new FruitDAOImpl();
+        boolean flag = fruitDAO.addFruit(new Fruit(0 , fname , price , fcount , remark));
 
-        System.out.println(fnameStr + price + fcount + remarkStr);
-
+        System.out.println(flag ? "添加成功！" : "添加失败！");
     }
 }
