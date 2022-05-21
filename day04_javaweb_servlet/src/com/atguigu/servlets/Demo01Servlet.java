@@ -1,4 +1,4 @@
-package com.atguigu.servlet;
+package com.atguigu.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
