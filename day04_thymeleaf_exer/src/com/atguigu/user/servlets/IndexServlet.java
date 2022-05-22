@@ -24,6 +24,7 @@ public class IndexServlet extends ViewBaseServlet {
     public void doGet(HttpServletRequest request , HttpServletResponse response)throws IOException, ServletException {
         UserDao userDao = new UserDaoImpl();
         List<User> userList = userDao.getUserList();
+
         //保存到session作用域
         HttpSession session = request.getSession() ;
         session.setAttribute("userList",userList);

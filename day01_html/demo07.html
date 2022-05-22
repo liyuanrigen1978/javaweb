@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js练习</title>
+    <style type="text/css">
+        body {
+            background: url("img/01.jpg") no-repeat center;
+
+        }
+        div {
+            margin:0 auto;
+
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload= function(){
+        var aInput ;
+        var aTd;
+        var aName;
+        var aMsg;
+        var countNum;
+        var count = document.getElementById("count");
+        aInput= document.getElementsByTagName("input");
+        aTd= document.getElementsByTagName("td");
+        aName= aInput[0];
+        aMsg= aTd[1];
+        aName.onfocus= function(){
+            aMsg.innerHTML= '时间格式：YYYY-MM-DD&nbsp;或者&nbsp;YYYYMMDD ';
+        }
+
+        aName.onblur= function(){
+            countNum= this.value.length;
+            if(countNum==0){
+                aMsg.innerHTML= '';
+            }
+            else if(countNum>10 || countNum<5){
+                aMsg.innerHTML= '<span style="color:red">请输入5--10个字符！</span>';
+                return false;
+            }
+        }
+
+        aName.onkeyup= function(){
+            countNum = this.value.length;
+            count.innerHTML= countNum +'个字符';
+            if(countNum==0){
+                count.innerHTML='';
+            }
+        }
+    }
+
+</script>
+<body >
+
+<form method="post" >
+    <table>
+        <tr>
+            <td>
+                <input type="text" >
+            </td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td id="count"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

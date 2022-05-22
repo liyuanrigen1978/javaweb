@@ -6,8 +6,12 @@
 	<body>
 		<div id="div_container">
 			<div id="div_user_list">
+
 				<p class="center f30">欢迎来到登录页面</p>
 				<table id="tbl_user">
+					<tr>
+						<span style="color:red">请输入5--10个字符！</span>
+					</tr>
 					<tr>
 						<th class="w20">用户</th>
 						<th class="w20">密码</th>
@@ -19,6 +23,7 @@
 						<td th:text="${user.username}">苹果</td>
 						<td th:text="${user.password}">5</td>
 					</tr>
+
 				</table>
 			</div>
 		</div>

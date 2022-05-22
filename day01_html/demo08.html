@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+</head>
+    <style>
+        #main-content{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 0 auto;
+            padding: auto;
+            background: chocolate;
+            top: 100px;
+        }
+        input{
+            width: 80px;
+            height: 50px;
+            size: 20px;
+        }
+    </style>
+    <script>
+        function messageAlert(){
+            window.alert("弹窗");
+        }
+        function messageConsole(){
+            window.console.log("console");
+        }
+        function messageWrite(){
+            document.write("Write");
+        }
+        function messageInnerHTML(){
+            document.getElementById("content").style.display="";
+            document.getElementById("content").innerHTML="InnerHTML";
+            setTimeout(function(){
+                document.getElementById("content").style.display="none";
+            },1000);
+        }
+    </script>
+</header>
+<body bgcolor="#888">
+<div id="main-content" align="center">
+    <h1>Title</h1>
+    <input type="button" value="弹窗" onclick="messageAlert()">
+    <input type="button" value="console" onclick="messageConsole()">
+    <input type="button" value="write" onclick="messageWrite()">
+    <input type="button" value="innerHTML" onclick="messageInnerHTML()">
+    <p id="content"></p>
+</div>
+</body>
+</html>
