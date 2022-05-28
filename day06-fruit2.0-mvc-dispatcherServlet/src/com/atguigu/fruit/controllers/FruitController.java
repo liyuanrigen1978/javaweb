@@ -31,7 +31,7 @@ public class FruitController extends ViewBaseServlet {
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //1.设置编码
-        request.setCharacterEncoding("utf-8");
+        //request.setCharacterEncoding("utf-8");
 
         //2.获取参数
         String fidStr = request.getParameter("fid");

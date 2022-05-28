@@ -1,0 +1,31 @@
+constructor:构造器
+Customer:用户
+Account:账户
+balance:余额
+annualInterestRate:年利率
+deposit:存钱
+withdraw:取钱
+
+controller:控制层
+>应用界面相关 controller.activity
+>存放fragment controller.fragment
+>显示列表的适配器 controller.adapter
+>服务相关的 controller.service
+>抽取的基类 controller.base
+
+model:模型层
+>数据对象封装 model.bean/domain
+>数据库操作类 model.dao
+>数据库 model.db
+
+view:视图层
+>相关工具类 view.utils
+>自定义view view.ui
+
+introduce local variable:引入局部变量
+:
+instanceof:运算符
+:
+:
+:
+:

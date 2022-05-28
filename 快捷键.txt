@@ -1,0 +1,30 @@
+单行注释       ctrl + /
+
+多行注释        ctrl + shift + /
+
+向下复制一行 (Duplicate Lines)   ctrl+alt+down
+
+删除一行或选中行 (delete line)   ctrl+d
+
+向下开始新的一行(start new line) shift+enter
+
+重构：修改变量名与方法名(rename)  alt+shift+r
+
+生成构造器/get/set/toString      alt +shift + s
+
+生成 try-catch 等(surround with) ctrl+alt+t
+
+自动补齐       ctrl+alt+v
+
+查看类的结构  ctrl+o
+
+批量处理对象     ctrl + r
+
+查看方法说明文档 F2
+
+查看类的继承结构图(Show UML Diagram) ctrl + shift + u
+
+查看继承关系(type hierarchy) F4
+
+查找类 查找类Ctrl+Shift+T
+
