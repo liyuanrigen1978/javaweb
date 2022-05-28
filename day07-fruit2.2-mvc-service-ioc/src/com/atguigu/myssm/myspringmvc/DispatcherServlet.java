@@ -33,6 +33,7 @@ public class DispatcherServlet extends ViewBaseServlet{
     public DispatcherServlet(){
     }
 
+    @Override
     public void init() throws ServletException {
         super.init();
         beanFactory = new ClassPathXmlApplicationContext();
