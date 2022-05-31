@@ -21,4 +21,9 @@ public class UserDaoImpl extends BaseDAO<User> implements UserDao {
         return super.load("select * from user_tbl where username = ? and password = ? " , username,password);
     }
 
+    @Override
+    public User getUserById(Integer id) {
+        return super.load("select * from user_tbl where id = ? " , id);
+    }
+
 }

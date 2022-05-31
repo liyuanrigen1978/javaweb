@@ -4,6 +4,7 @@ import com.atguigu.myssm.myspringmvc.ViewBaseServlet;
 import com.atguigu.myssm.util.StringUtil;
 import com.atguigu.user.dao.UserDao;
 import com.atguigu.user.dao.impl.UserDaoImpl;
+import com.atguigu.user.pojo.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +28,9 @@ public class EditServlet extends ViewBaseServlet {
         if(StringUtil.isNotEmpty(idStr)){
             //获取到的是字符串，所以要进行类型转换
             int id = Integer.parseInt(idStr);
+            User user = userDao.getUserById(id);
+            request.setAttribute("user",user);
+            super.processTemplate("edit",request,response);
 
 
         }
