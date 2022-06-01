@@ -28,8 +28,11 @@ public class EditServlet extends ViewBaseServlet {
         if(StringUtil.isNotEmpty(idStr)){
             //获取到的是字符串，所以要进行类型转换
             int id = Integer.parseInt(idStr);
+            //调用dao中的方法，获得user对象
             User user = userDao.getUserById(id);
+            //把取得的user对象加到这次请求中，用来网页表示
             request.setAttribute("user",user);
+            //运用上下文（实际的配置文件在web.xml里），跳转到/edit.html页面
             super.processTemplate("edit",request,response);
 
 
