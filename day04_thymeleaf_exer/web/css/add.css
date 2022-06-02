@@ -20,17 +20,17 @@ div{
 	background-color: honeydew;
 	border-radius:8px;
 }
-#div_fruit_list{
+#div_user_list{
 	width:100%;
 	border:0px solid red;
 }
-#tbl_fruit{
+#tbl_user{
 	width:60%;
 	line-height:28px;
 	margin-top:16px;
 	margin-left:20%;
 }
-#tbl_fruit , #tbl_fruit tr , #tbl_fruit th , #tbl_fruit td{
+#tbl_user , #tbl_user tr , #tbl_user th , #tbl_user td{
 	border:1px solid gray;
 	border-collapse:collapse;
 	text-align:center;

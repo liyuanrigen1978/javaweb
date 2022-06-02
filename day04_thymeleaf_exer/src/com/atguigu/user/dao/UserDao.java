@@ -18,4 +18,13 @@ public interface UserDao {
 
     //根据id获取指定用户的信息
     User getUserById(Integer id);
+
+    //修改指定用户信息
+    void updateUser(User user);
+
+    //删除指定用户
+    void delUser(Integer id);
+
+    //增加用户
+    void addUser(User user);
 }
