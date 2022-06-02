@@ -72,8 +72,6 @@ public class IndexServlet extends ViewBaseServlet {
             }
         }
         //*******************查询表单和分页处理 END***************************
-
-
         //所有用户消息
         List<User> userList = userDao.getUserList(keyword,pageNo);
         //取得所有的用户数
