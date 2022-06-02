@@ -21,7 +21,7 @@ import java.util.List;
  * @create 2022-06-02 21:11
  */
 
-@WebServlet("/user.do")
+//@WebServlet("/user.do")
 public class UserController extends ViewBaseServlet {
     private UserDao userDao = new UserDaoImpl();
 
