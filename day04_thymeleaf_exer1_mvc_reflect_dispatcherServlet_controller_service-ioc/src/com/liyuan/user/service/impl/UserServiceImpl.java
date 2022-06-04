@@ -1,9 +1,8 @@
-package com.atguigu.user.service.impl;
+package com.liyuan.user.service.impl;
 
-import com.atguigu.user.dao.UserDao;
-import com.atguigu.user.dao.impl.UserDaoImpl;
-import com.atguigu.user.pojo.User;
-import com.atguigu.user.service.UserService;
+import com.liyuan.user.dao.UserDao;
+import com.liyuan.user.pojo.User;
+import com.liyuan.user.service.UserService;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  * @create 2022-06-05 0:04
  */
 public class UserServiceImpl implements UserService {
-    private UserDao userDao = new UserDaoImpl();
+    private UserDao userDao = null;
     @Override
     public List<User> getUserList(String keyword, Integer pageNo) {
         return userDao.getUserList(keyword,pageNo);

@@ -1,8 +1,8 @@
-package com.atguigu.user.dao.impl;
+package com.liyuan.user.dao.impl;
 
-import com.atguigu.myssm.basedao.BaseDAO;
-import com.atguigu.user.dao.UserDao;
-import com.atguigu.user.pojo.User;
+import com.liyuan.myssm.basedao.BaseDAO;
+import com.liyuan.user.dao.UserDao;
+import com.liyuan.user.pojo.User;
 
 import java.util.List;
 

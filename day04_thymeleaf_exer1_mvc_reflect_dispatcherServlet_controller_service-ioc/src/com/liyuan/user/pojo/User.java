@@ -1,4 +1,4 @@
-package com.atguigu.user.pojo;
+package com.liyuan.user.pojo;
 
 /**
  * @author liyuan_start

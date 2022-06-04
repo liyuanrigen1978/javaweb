@@ -1,6 +1,6 @@
-package com.atguigu.user.service;
+package com.liyuan.user.service;
 
-import com.atguigu.user.pojo.User;
+import com.liyuan.user.pojo.User;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.atguigu.myssm.basedao;
+package com.liyuan.myssm.basedao;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;

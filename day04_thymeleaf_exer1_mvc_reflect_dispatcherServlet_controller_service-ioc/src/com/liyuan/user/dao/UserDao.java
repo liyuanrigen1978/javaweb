@@ -1,6 +1,6 @@
-package com.atguigu.user.dao;
+package com.liyuan.user.dao;
 
-import com.atguigu.user.pojo.User;
+import com.liyuan.user.pojo.User;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface UserDao {
 //    //获取所有用户列表
 //    List<User> getUserList(Integer pageNo);
     //获取所有用户列表（重写的方法，用来追加查询处理）
-    List<User> getUserList(String keyword,Integer pageNo);
+    List<User> getUserList(String keyword, Integer pageNo);
 
     //根据用户名和密码获取用户对象
     User getUserByFid(String username,String password);

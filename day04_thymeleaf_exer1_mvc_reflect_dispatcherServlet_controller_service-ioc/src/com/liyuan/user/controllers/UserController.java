@@ -1,9 +1,8 @@
-package com.atguigu.user.controllers;
+package com.liyuan.user.controllers;
 
-import com.atguigu.myssm.util.StringUtil;
-import com.atguigu.user.pojo.User;
-import com.atguigu.user.service.UserService;
-import com.atguigu.user.service.impl.UserServiceImpl;
+import com.liyuan.myssm.util.StringUtil;
+import com.liyuan.user.pojo.User;
+import com.liyuan.user.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,7 +16,7 @@ import java.util.List;
 //@WebServlet("/user.do")
 public class UserController{
 
-    private UserService userService = new UserServiceImpl();
+    private UserService userService = null;
 
     //首页
     private String index(String oper,String keyword,Integer pageNo,HttpServletRequest request) {
