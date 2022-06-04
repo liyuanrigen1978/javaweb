@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans>
+    <!--将文件信息配置在xml文件中，在中央控制器中进行调用-->
+   <bean id ="user" class="com.atguigu.user.controllers.UserController"/>
+</beans>

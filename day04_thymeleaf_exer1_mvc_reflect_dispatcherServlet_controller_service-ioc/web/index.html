@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/index.css">
+    <script language="JavaScript" src="js/index.js"></script>
+
+<body>
+    <div id="div_container">
+        <div id="div_user_list">
+            <p class="center f30">欢迎使用用户管理系统</p>
+
+            <div style="border:0px solid red;width:60%;margin-left:20%;text-align:right;">
+              <form th:action="@{/user.do}" method="post" style="float:left;width:60%;margin-left:20%;">
+                  <input type="hidden" name="oper" value="search"/>
+                  请输入关键字：<input type="text" name="keyword" th:value="${session.keyword}"/>
+                  <input type="submit" value="查询" class="btn"/>
+                </form>
+                <a th:href="@{/add.html}" style="border:0px solid blue;margin-bottom:4px;">添加新用户记录</a>
+            </div>
+            <table id="tbl_user">
+                <tr>
+                    <th class="w20">用户</th>
+                    <th class="w20">密码</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:if="${#lists.isEmpty(session.userList)}">
+                    <td colspan="4">对不起，现在没有用户！</td>
+                </tr>
+                <tr th:unless="${#lists.isEmpty(session.userList)}" th:each="user : ${session.userList}">
+                    <td ><a th:text="${user.username}" th:href="@{/user.do(id=${user.id},operate='edit')}">用户1</a></td>
+                    <td th:text="${user.password}">1111</td>
+                    <!--<td><img src="imgs/del.jpg" class="delImg" th:onclick="'delUser('+${user.id}+')'"/></td>-->
+                    <td><img src="imgs/del.jpg" class="delImg" th:onclick="|delUser(${user.id})|"/></td>
+                </tr>
+            </table>
+            <div style="width:60%;margin-left:20%;padding-top: 4px;" class="center">
+                <input type="button" value="首  页" class="btn" th:onclick="|page(1)|" th:disabled="${session.pageNo==1}"/>
+                <input type="button" value="上一页" class="btn" th:onclick="|page(${session.pageNo-1})|" th:disabled="${session.pageNo==1}"/>
+                <input type="button" value="下一页" class="btn" th:onclick="|page(${session.pageNo+1})|" th:disabled="${session.pageNo==session.pageCount}"/>
+                <input type="button" value="尾  页" class="btn" th:onclick="|page(${session.pageCount})|" th:disabled="${session.pageNo==session.pageCount}"/>
+                <input type="text" disabled="false" th:value="|共${session.pageCount}页|" class="center"  style="border:0px solid red;width:50px;"/>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
