@@ -6,6 +6,7 @@ import com.atguigu.user.dao.UserDao;
 import com.atguigu.user.dao.impl.UserDaoImpl;
 import com.atguigu.user.pojo.User;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,39 +24,20 @@ import java.util.List;
 
 //@WebServlet("/user.do")
 public class UserController extends ViewBaseServlet {
-    private UserDao userDao = new UserDaoImpl();
 
-    @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String operate = request.getParameter("operate");
-        if (StringUtil.isEmpty(operate)) {
-            operate = "index";
-        }
+    //之前FruitServlet是一个Sevlet组件，那么其中的init方法一定会被调用
+    //之前的init方法内部会出现一句话：super.init();
 
-        //获取此类中的所有方法
-        Method[] methods = this.getClass().getDeclaredMethods();
+    private ServletContext servletContext ;
 
-        for (Method m : methods) {
-            //获取方法名
-            String methodName = m.getName();
-            if (operate.equals(methodName)) {
-                try {
-                    //通过反射技术来调用对应得方法
-                    m.invoke(this, request, response);
-                    return;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-        }
-        throw new RuntimeException("operate值非法！");
-
+    public void setServletContext(ServletContext servletContext) throws ServletException {
+        this.servletContext = servletContext;
+        super.init(servletContext);
     }
+
+
+    private UserDao userDao = new UserDaoImpl();
 
     //首页
     private void index(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
