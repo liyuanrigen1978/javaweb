@@ -1,9 +1,9 @@
 package com.atguigu.user.controllers;
 
 import com.atguigu.myssm.util.StringUtil;
-import com.atguigu.user.dao.UserDao;
-import com.atguigu.user.dao.impl.UserDaoImpl;
 import com.atguigu.user.pojo.User;
+import com.atguigu.user.service.UserService;
+import com.atguigu.user.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,7 +17,7 @@ import java.util.List;
 //@WebServlet("/user.do")
 public class UserController{
 
-    private UserDao userDao = new UserDaoImpl();
+    private UserService userService = new UserServiceImpl();
 
     //首页
     private String index(String oper,String keyword,Integer pageNo,HttpServletRequest request) {
@@ -52,12 +52,9 @@ public class UserController{
         //*******************查询表单和分页处理 END***************************
 
         //所有用户消息
-        List<User> userList = userDao.getUserList(keyword, pageNo);
-        //取得所有的用户数
-        int userCount = userDao.getUserCount(keyword);
-        //总页数
-        int pageCount = (userCount + 5 - 1) / 5;
-
+        List<User> userList = userService.getUserList(keyword, pageNo);
+        //取得总页数
+        int pageCount = userService.getPageCount(keyword);
 
         //页面数保存到session
         session.setAttribute("pageNo", pageNo);
@@ -71,14 +68,14 @@ public class UserController{
 
     //追加新数据
     private String add(String username,String password){
-      userDao.addUser(new User(0, username, password));
+        userService.addUser(new User(0, username, password));
         return "redirect:user.do";
     }
 
     //删除数据
     private String del(Integer id) {
         if (id!=null) {
-            userDao.delUser(id);
+            userService.delUser(id);
             return "redirect:user.do";
         }
         return "error";
@@ -88,7 +85,7 @@ public class UserController{
     private String edit(Integer id,HttpServletRequest request) {
         if (id!=null) {
             //调用dao中的方法，获得user对象
-            User user = userDao.getUserById(id);
+            User user = userService.getUserById(id);
             //把取得的user对象加到这次请求中，用来网页表示
             request.setAttribute("user", user);
             //运用上下文（实际的配置文件在web.xml里），跳转到/edit.html页面
@@ -103,7 +100,7 @@ public class UserController{
     //更新数据
     private String update(Integer id,String username,String password) {
 
-        userDao.updateUser(new User(id, username, password));
+        userService.updateUser(new User(id, username, password));
         //页面不是调到.html页面。而是要从定向跳向IndexServlet重新刷新首页
         //页面跳转处理不放在Controller里进行，将统一进行处理
         //response.sendRedirect("user.do");
